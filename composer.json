@@ -1,0 +1,24 @@
+{
+    "name": "log4p/log4p",
+    "description": "implementation of log for php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "destiny",
+        "email": "1263022534@qq.com"
+      }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "monolog/monolog": ">=1.22.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Log4p\\": "src/"
+        }
+    }
+}
