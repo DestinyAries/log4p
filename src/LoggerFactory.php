@@ -44,7 +44,7 @@ class LoggerFactory
     public static function setConfigs(string $filePath)
     {
         if ($filePath && file_exists($filePath)) {
-            self::$configs = require_once $filePath; 
+            self::$configs = require($filePath); 
         } else {
             throw new MissingException("Unable to load $filePath.");
         }
@@ -59,7 +59,7 @@ class LoggerFactory
     public static function getLogger(string $className = self::DEFAULT_NAME, $level = BaseLogger::INFO)
     {
         // 读取配置文件
-        $curConfigs = self::$configs ?? require_once(dirname(__DIR__).'/config/default.php');
+        $curConfigs = self::$configs ?? require(dirname(__DIR__).'/config/default.php');
         // 设置时区
         date_default_timezone_set(self::getByKey($curConfigs, 'timezone') ?? self::DEFAULT_TIMEZONE);
         // 日志类型
